@@ -47,6 +47,11 @@ app.post('/signup', celebrate({
     avatar: Joi.string().regex(regexUrl),
   }),
 }), createUser);
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
 app.use('/users', auth, usersRouter);
 app.use('/cards', auth, cardsRouter);
 
