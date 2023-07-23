@@ -51,6 +51,6 @@ class Auth {
 }
 
 //const auth = new Auth('http://127.0.0.1:3000');
-const auth = new Auth('http://158.160.54.178:3000');
+const auth = new Auth('https://alex-garshin-backend.nomoredomains.xyz');
 
 export default auth;

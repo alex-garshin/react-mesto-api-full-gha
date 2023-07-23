@@ -11,6 +11,6 @@
 
 IP-адрес 158.160.54.178
 
-Frontend https://...
+Frontend https://alex-garshin.nomoredomains.xyz/
 
-Backend https://...
+Backend https://alex-garshin-backend.nomoredomains.xyz/sign-in

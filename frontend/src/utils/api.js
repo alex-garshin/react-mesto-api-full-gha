@@ -108,7 +108,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "http://158.160.54.178:3000",
+  baseUrl: "https://alex-garshin-backend.nomoredomains.xyz",
   //baseUrl: "http://127.0.0.1:3000",
   headers: {
     //'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
