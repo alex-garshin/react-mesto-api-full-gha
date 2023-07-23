@@ -47,7 +47,7 @@ app.post('/signup', celebrate({
     avatar: Joi.string().regex(regexUrl),
   }),
 }), createUser);
-app.get('/crash-test-sever', () => {
+app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
