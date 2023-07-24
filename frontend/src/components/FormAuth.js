@@ -37,7 +37,7 @@ function FormAuth({ onSubmit }) {
         placeholder="Пароль"
         value={enteredValues.password || ""}
         onChange={handleChange}
-        minLength={6}
+        minLength={8}
         required
       />
       <span id="password-error" className="login__input-error">

@@ -1,4 +1,5 @@
 const Card = require('../models/card');
+const User = require('../models/user');
 
 const { CustomError } = require('../errors/handleError');
 
@@ -10,7 +11,7 @@ const statusCode = {
 const getAllCards = async (req, res, next) => {
   console.log('getAllCards');
   try {
-    const cards = await Card.find({}).populate('owner');
+    const cards = await Card.find({}).populate(['owner', 'likes']);
     res.status(statusCode.ok).send(cards);
   } catch (err) {
     next(err);
@@ -21,8 +22,8 @@ const createCard = async (req, res, next) => {
   console.log('createCard');
   const { name, link } = req.body;
   try {
-    const ownerId = req.user._id;
-    const card = await Card.create({ name, link, owner: ownerId });
+    const owner = await User.findById(req.user._id);
+    const card = await Card.create({ name, link, owner });
     console.log(card);
     res.status(statusCode.created).send(card);
   } catch (err) {

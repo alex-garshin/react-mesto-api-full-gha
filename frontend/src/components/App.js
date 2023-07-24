@@ -33,7 +33,7 @@ function App() {
   const [cards, setCards] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
+  const [isAuthSuccess, setIsAuthSuccess] = useState(false);
 
   const history = useHistory();
   useEffect(() => {
@@ -205,12 +205,12 @@ function App() {
     return auth
       .register(data)
       .then(() => {
-        setIsRegistrationSuccess(true);
+        setIsAuthSuccess(true);
         setIsInfoTooltipOpen(true);
         history.push("/");
       })
       .catch((err) => {
-        setIsRegistrationSuccess(false);
+        setIsAuthSuccess(false);
         setIsInfoTooltipOpen(true);
         console.log(`Ошибка: ${err}`);
       });
@@ -227,6 +227,7 @@ function App() {
         handleTokenCheck();
       })
       .catch((err) => {
+        setIsAuthSuccess(false)
         setIsInfoTooltipOpen(true);
         console.log(`Ошибка: ${err}`);
       });
@@ -363,7 +364,7 @@ function App() {
           isOpen={isInfoTooltipOpen}
           onClose={closeAllPopups}
           name="auth"
-          isSuccessfulAction={isRegistrationSuccess}
+          isSuccessfulAction={isAuthSuccess}
         />
       </div>
     </CurrentUserContext.Provider>
